@@ -1,0 +1,10 @@
+.popup__submitbtn_status_inactive {
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 2px;
+    opacity: 0.2;
+}
+
+.popup__submitbtn_status_inactive:hover {
+    opacity: 0.2;
+}

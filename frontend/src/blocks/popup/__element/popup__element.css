@@ -1,0 +1,10 @@
+.popup__element {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    margin: 10px 0 0;
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+}

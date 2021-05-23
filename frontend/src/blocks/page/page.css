@@ -1,0 +1,11 @@
+.page {
+    min-height:100vh;
+    max-width: 880px;
+    padding-left: auto;
+    padding-right: auto;
+    background-color: black;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
