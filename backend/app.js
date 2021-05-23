@@ -20,11 +20,17 @@ const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 150, // limit each IP to 150 requests per windowMs
 });
-
-app.use(cors({
-  origin: 'http://xenoxil.mesto.nomoredomains.icu',
-  credentials: true,
-}));
+app.options('*', (req, res) => {
+  res.set('Access-Control-Allow-Origin', 'https://xenoxil.mesto.nomoredomains.icu');
+  res.set('Access-Control-Allow-Headers', 'Content-Type');
+  res.send('ok');
+});
+app.use(
+  cors({
+    origin: 'https://xenoxil.mesto.nomoredomains.icu',
+    credentials: true,
+  }),
+);
 
 app.use(limiter);
 app.use(helmet());
