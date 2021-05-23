@@ -90,7 +90,7 @@ module.exports.login = (req, res, next) => {
               },
             );
             res
-              .cookie('mestoToken', token, { maxAge: 604800000, httpOnly: true, sameSite: true })
+              .cookie('mestoToken', token, { maxAge: 604800000, httpOnly: true, SameSite: 'none', secure: true })
               .send({ _id: req.body._id });
           }
         });
