@@ -25,12 +25,18 @@ app.use(cors({
   origin: 'https://xenoxil.mesto.nomoredomains.icu',
   credentials: true,
 }));
+
 app.use(limiter);
 app.use(helmet());
 app.use(cookies());
 
 app.use(express.json());
 app.use(requestLogger);
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.post('/signin', loginValidation, login);
 app.post('/signup', loginValidation, createUser);
 app.delete('/', logout);
