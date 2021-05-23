@@ -7,6 +7,8 @@ const Users = require('../models/user');
 const ResourceUnavalableError = require('../errors/ResourceUnavailableError');
 const AuthorizationError = require('../errors/AuthorizationError');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 module.exports.getUsers = (req, res, next) => {
   Users.find({})
     .then((users) => {
@@ -82,13 +84,9 @@ module.exports.login = (req, res, next) => {
           if (!matched) {
             next(new AuthorizationError('Неправильные почта или пароль'));
           } else {
-            const token = jwt.sign(
-              { _id: user._id },
-              '6d8a2cff9c4eb3838c51e357e31e84aa468be1e3467ec315b14fba0f9eed6095',
-              {
-                expiresIn: '7d',
-              },
-            );
+            const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', {
+              expiresIn: '7d',
+            });
             res
               .cookie('mestoToken', token, { maxAge: 604800000, httpOnly: true, sameSite: 'none' })
               .send({ _id: req.body._id });
@@ -107,7 +105,10 @@ module.exports.login = (req, res, next) => {
 };
 
 module.exports.logout = (req, res) => {
-  res.clearCookie('mestoToken', { httpOnly: true, sameSite: 'none' }).status(200).send({ message: 'Куки токен удалён' });
+  res
+    .clearCookie('mestoToken', { httpOnly: true, sameSite: 'none' })
+    .status(200)
+    .send({ message: 'Куки токен удалён' });
 };
 
 module.exports.createUser = (req, res, next) => {
