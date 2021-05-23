@@ -107,7 +107,7 @@ module.exports.login = (req, res, next) => {
 };
 
 module.exports.logout = (req, res) => {
-  res.clearCookie('mestoToken', { httpOnly: true, sameSite: true }).status(200).send({ message: 'Куки токен удалён' });
+  res.clearCookie('mestoToken', { httpOnly: true, sameSite: 'none' }).status(200).send({ message: 'Куки токен удалён' });
 };
 
 module.exports.createUser = (req, res, next) => {
