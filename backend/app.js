@@ -23,6 +23,7 @@ const limiter = rateLimit({
 app.options('*', (req, res) => {
   res.set('Access-Control-Allow-Origin', 'https://xenoxil.mesto.nomoredomains.icu');
   res.set('Access-Control-Allow-Headers', 'Content-Type');
+  res.set('Access-Control-Allow-Credentials', 'true');
   res.send('ok');
 });
 app.use(
