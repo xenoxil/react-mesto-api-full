@@ -79,7 +79,7 @@ export class Auth {
 }
 
 const auth = new Auth({
-  baseUrl: "http://api.xenoxil.mesto.nomoredomains.icu",
+  baseUrl: "https://api.xenoxil.mesto.nomoredomains.icu",
   headers: {
     "Content-Type": "application/json",
   },

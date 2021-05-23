@@ -151,7 +151,7 @@ export class Api {
 }
 
 const api = new Api({
-    baseUrl: 'http://api.xenoxil.mesto.nomoredomains.icu',
+    baseUrl: 'https://api.xenoxil.mesto.nomoredomains.icu',
     headers: {        
         'Content-Type': 'application/json'
     }
