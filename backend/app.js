@@ -22,7 +22,7 @@ const limiter = rateLimit({
 });
 
 app.use(cors({
-  origin: 'https://xenoxil.mesto.nomoredomains.icu',
+  origin: 'https://xenoxil.mesto.nomoredomains.icu/*',
   credentials: true,
 }));
 
