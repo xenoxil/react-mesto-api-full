@@ -1,10 +1,9 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const BadRequestError = require('../errors/BadRequestError');
-const ResourceUnavailableError = require('../errors/PermissionError');
 const NotUniqueEmailError = require('../errors/NotUniqueEmailError');
 const Users = require('../models/user');
-const ResourceUnavalableError = require('../errors/ResourceUnavailableError');
+const ResourceUnavailableError = require('../errors/ResourceUnavailableError');
 const AuthorizationError = require('../errors/AuthorizationError');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
@@ -70,10 +69,6 @@ module.exports.updateAvatar = (req, res, next) => {
 
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
-
-  if (!password || !email) {
-    next(new AuthorizationError('Неправильные почта или пароль'));
-  }
 
   Users.findOne({ email })
     .select('+password')
@@ -143,7 +138,7 @@ module.exports.createUser = (req, res, next) => {
 module.exports.getMyInfo = (req, res, next) => {
   Users.findById(req.user._id)
     .orFail(() => {
-      next(new ResourceUnavalableError('Запрашиваемый пользователь не найден'));
+      next(new ResourceUnavailableError('Запрашиваемый пользователь не найден'));
     })
     .then((user) => res.send(user))
     .catch((err) => {

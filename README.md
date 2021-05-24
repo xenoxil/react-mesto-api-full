@@ -3,4 +3,6 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-https://xenoxil.mesto.nomoredomains.icu/
+https://xenoxil.mesto.nomoredomains.icu/  -сайт
+https://api.xenoxil.mesto.nomoredomains.icu/  -api
+178.154.207.191 -ip-адресс

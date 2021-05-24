@@ -8,7 +8,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const router = require('./routes');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const { loginValidation } = require('./middlewares/validation');
+const { loginValidation, signupValidation } = require('./middlewares/validation');
 const { errorHandler } = require('./middlewares/errorHandler');
 const { createUser, login, logout } = require('./controllers/users');
 const ResourceUnavalableError = require('./errors/ResourceUnavailableError');
@@ -46,7 +46,7 @@ app.get('/crash-test', () => {
   }, 0);
 });
 app.post('/signin', loginValidation, login);
-app.post('/signup', loginValidation, createUser);
+app.post('/signup', signupValidation, createUser);
 app.delete('/', logout);
 app.use('/', router);
 app.use('*', (req, res, next) => {

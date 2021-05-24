@@ -7,7 +7,7 @@
 /.vscode
 *.log
 .env
-
+.prettierrc.js
 # testing
 /coverage
 
