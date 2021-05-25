@@ -3,8 +3,10 @@ import React from 'react'
 
 function ImagePopup(props) {
 
+  
+
   return (
-    <section className={props.card.link !== '#' ? `popup popupImage popup_status_opened` : `popup popupImage`}>
+    <section className={props.card.link !== '#' ? `popup popupImage popup_status_opened` : `popup popupImage`} onClick={props.onClick}>
       <div className="popup__imagecontainer">
         <img className="popup__image" src={props.card.link} alt={props.card.name} />
         <h3 className="popup__element" >{props.card.name}</h3>

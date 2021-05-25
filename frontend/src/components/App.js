@@ -59,6 +59,14 @@ function App() {
       .catch((err) => console.log("Ошибка:", err));      
     }, []);
 
+    React.useEffect(() => {
+      document.addEventListener("keydown", handleEscape, false);
+  
+      return () => {
+        document.removeEventListener("keydown", handleEscape, false);
+      };
+    }, []);
+
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
@@ -122,7 +130,7 @@ function App() {
       .catch((err) => console.log("Ошибка добавления карточки", err));
   }
 
-  function CloseAllPopups() {
+ function CloseAllPopups() {
     setIsEditProfileOpen(false);
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
@@ -180,11 +188,17 @@ function App() {
     auth.logout();
   }
 
-  function handleEscape(e){
-if(e.key==='Escape'){
+  function handleEscape(e){ 
+if(e.key==='Escape' ){
   CloseAllPopups();
-}
+}}
+
+function handleOverPopupClick(evt){
+  if(evt.target.classList.contains('popup')){
+CloseAllPopups();
   }
+}
+
 
   return (
     <div className="page">
@@ -223,34 +237,40 @@ if(e.key==='Escape'){
           isOpen={isEditProfilePopupOpen}
           onClose={CloseAllPopups}
           onUpdateUser={handleUpdateUser}
+          onClick={handleOverPopupClick}            
         />
         <AddPlacePopup
           isOpen={isAddPlacePopupOpen}
           onClose={CloseAllPopups}
-          onAddPlace={handleAddPlaceSubmit}
+          onAddPlace={handleAddPlaceSubmit} 
+          onClick={handleOverPopupClick}           
         />
         <InfooTooltip
           isSuccess={isAuthReqSuccess}
           isOpen={isInfoToolTipPopupOpen}
           onClose={CloseAllPopups}
+          onClick={handleOverPopupClick}  
+          
         />
 
         <ImagePopup
           card={selectedCard ? selectedCard : { link: "#", name: "" }}
           onClose={CloseAllPopups}
           onUpdateUser={handleUpdateUser}
+          onClick={handleOverPopupClick}          
         />
         <PopupWithForm
           name="popupDeleteConfirmation"
           title="Вы уверены?"
           buttonLabel="Да"
           onClose={CloseAllPopups}
-          onKeyPress={handleEscape}
+          onClick={handleOverPopupClick}            
         />
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
           onClose={CloseAllPopups}
           onUpdateAvatar={handleUpdateAvatar}
+          onClick={handleOverPopupClick}            
         />
       </CurrentUserContext.Provider>
     </div>
