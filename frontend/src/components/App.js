@@ -181,7 +181,7 @@ function App() {
   }
 
   function handleEscape(e){
-if(e==='Escape'){
+if(e.key==='Escape'){
   CloseAllPopups();
 }
   }
