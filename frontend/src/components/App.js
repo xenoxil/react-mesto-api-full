@@ -180,6 +180,12 @@ function App() {
     auth.logout();
   }
 
+  function handleEscape(e){
+if(e==='Escape'){
+  CloseAllPopups();
+}
+  }
+
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
@@ -239,6 +245,7 @@ function App() {
           title="Вы уверены?"
           buttonLabel="Да"
           onClose={CloseAllPopups}
+          onKeyPress={handleEscape}
         />
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}

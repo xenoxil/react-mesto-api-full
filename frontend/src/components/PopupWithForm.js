@@ -4,7 +4,7 @@ function PopupWithForm(props) {
   return (
 
     <section className={props.isOpen ? `popup  ${props.name} popup_status_opened` : `popup  ${props.name}`}>
-      <form className="popup__container popup__form" id={props.id} name={props.id} autoComplete="off" noValidate onSubmit={props.onSubmit}>
+      <form className="popup__container popup__form" id={props.id} name={props.id} autoComplete="off" noValidate onSubmit={props.onSubmit} onKeyPress={props.onKeyPress}>
         <h3 className="popup__header">{props.title}</h3>
         {props.children}
         <button className="popup__submitbtn popup__submitProfile" type="submit" aria-label="Кнопка сохранить ">{props.buttonLabel}</button>
