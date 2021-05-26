@@ -83,7 +83,7 @@ module.exports.login = (req, res, next) => {
               expiresIn: '7d',
             });
             res
-              .cookie('mestoToken', token, { maxAge: 604800000, httpOnly: true, sameSite: 'none' })
+              .cookie('mestoToken', token, { maxAge: 604800000, httpOnly: true, sameSite: 'none', secure: true })
               .send({ _id: req.body._id });
           }
         });
@@ -101,7 +101,7 @@ module.exports.login = (req, res, next) => {
 
 module.exports.logout = (req, res) => {
   res
-    .clearCookie('mestoToken', { httpOnly: true, sameSite: 'none' })
+    .clearCookie('mestoToken', { httpOnly: true, sameSite: 'none', secure: true })
     .status(200)
     .send({ message: 'Куки токен удалён' });
 };
