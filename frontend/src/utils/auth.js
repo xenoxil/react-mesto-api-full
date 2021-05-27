@@ -60,25 +60,11 @@ export class Auth {
     });
   }
 
-  /*checkToken(token) {
-    return fetch(`${this._options.baseUrl}/users/me`, {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Ошибка проверки токена входа: ${res.status}`);
-      }
-    });
-  }*/
+ 
 }
 
 const auth = new Auth({
+ /* baseUrl: 'http://localhost:3001',*/
   baseUrl: "https://api.xenoxil.mesto.nomoredomains.icu",
   headers: {
     "Content-Type": "application/json",

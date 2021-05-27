@@ -27,6 +27,7 @@ app.options('*', (req, res) => {
   res.set('Access-Control-Allow-Credentials', 'true');
   res.send('ok');
 });
+
 app.use(
   cors({
     origin: 'https://xenoxil.mesto.nomoredomains.icu',

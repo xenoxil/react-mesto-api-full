@@ -22,7 +22,7 @@ function Register(props) {
         <h2 className="login__header">Регистрация</h2>
         <input
           className="login__input"
-          type="url"
+          type="email"
           ref={email}
           name="registerName"
           id="registerName"
@@ -31,7 +31,7 @@ function Register(props) {
           minLength={2}
           maxLength={40}
         />
-        <span className="error" id="loginName-error" />
+        <span className="error" id="registerName-error" />
         <input
           className="login__input"
           type="password"
@@ -40,10 +40,10 @@ function Register(props) {
           id="registerPassword"
           placeholder="Пароль"
           required
-          minLength={6}
+          minLength={8}
           maxLength={30}
         />
-        <span className="error" id="login-error" />
+        <span className="error" id="registerPassword-error" />
         <button
           className="login__submitbtn hover"
           type="submit"

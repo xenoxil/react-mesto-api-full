@@ -151,11 +151,12 @@ export class Api {
 }
 
 const api = new Api({
+    /*baseUrl: 'http://localhost:3001',*/
     baseUrl: 'https://api.xenoxil.mesto.nomoredomains.icu',
     headers: {        
         'Content-Type': 'application/json'
     }
 });
-/*http://localhost:3001*/
+
 
 export default api

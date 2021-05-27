@@ -1,6 +1,8 @@
 import React from 'react'
+
 function PopupWithForm(props) {
 
+ 
   return (
 
     <section className={props.isOpen ? `popup  ${props.name} popup_status_opened` : `popup  ${props.name}`} onClick={props.onClick}>
