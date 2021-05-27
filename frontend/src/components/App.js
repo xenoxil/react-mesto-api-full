@@ -95,17 +95,6 @@ const loginConfig = {
   const addNewElementForm=document.getElementById('addNewElementForm');
   const addNewElementValidation= new FormValidator(config,addNewElementForm);
   addNewElementValidation.enableValidation();
-  
-  /*const loginForm=document.getElementById('loginForm');
-  const loginFormValidation= new FormValidator(loginConfig,loginForm);
-  loginFormValidation.enableValidation();*/
-
-  console.log(location)
-
-  /*const registerForm=document.getElementById('registerForm');
-  const registerFormValidation= new FormValidator(config,registerForm);
-  registerFormValidation.enableValidation();*/
-  
     }, []);
 
     React.useEffect(() => {
