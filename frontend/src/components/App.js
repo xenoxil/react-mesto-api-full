@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, useHistory, useLocation } from "react-router-dom";
+import { Route, Switch, useHistory} from "react-router-dom";
 import "../index.css";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
@@ -17,6 +17,7 @@ import Register from "./Register";
 import InfooTooltip from "./InfoTooltip";
 import auth from "../utils/auth";
 import {FormValidator} from './FormValidator'
+import {config} from '../utils/constants'
 
 
 function App() {
@@ -37,21 +38,8 @@ function App() {
     avatar: "#",
     about: "Мореплаватель",
   });
-  const location = useLocation();
-  const config = {
-    formSelector: '.popup__container',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__submitbtn',
-    inactiveButtonClass: 'popup__submitbtn_status_inactive',
-    errorClass: '.popup__input_state_invalid'
-}
-const loginConfig = {
-  formSelector: '.login__form',
-  inputSelector: '.login__input',
-  submitButtonSelector: '.login__submitbtn',
-  inactiveButtonClass: 'popup__submitbtn_status_inactive',
-  errorClass: '.popup__input_state_invalid'
-}
+  
+  
 
   React.useEffect(() => {    
     api
@@ -96,18 +84,7 @@ const loginConfig = {
   const addNewElementValidation= new FormValidator(config,addNewElementForm);
   addNewElementValidation.enableValidation();
     }, []);
-
-    React.useEffect(() => {
-      if(location.pathname==='/sign-in'){
-      const loginForm=document.getElementById('loginForm');
-  const loginFormValidation= new FormValidator(loginConfig,loginForm);
-      loginFormValidation.enableValidation();}
-      else if(location.pathname==='/sign-up'){
-        const registerForm=document.getElementById('registerForm');
-  const registerFormValidation= new FormValidator(loginConfig,registerForm);
-  registerFormValidation.enableValidation();
-      } 
-    }, [location.pathname]);
+   
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке

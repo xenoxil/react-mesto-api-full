@@ -1,9 +1,17 @@
 import React, { useRef } from "react";
 import { Link,withRouter } from "react-router-dom";
+import {FormValidator} from './FormValidator';
+import {loginConfig} from '../utils/constants'
 
 function Register(props) {
   const email = useRef();
   const password = useRef();
+   
+  React.useEffect(() => {   
+  const registerForm=document.getElementById('registerForm');
+const registerFormValidation= new FormValidator(loginConfig,registerForm);
+registerFormValidation.enableValidation();
+}, []);
 
   function handleSubmit(e) {
     e.preventDefault();

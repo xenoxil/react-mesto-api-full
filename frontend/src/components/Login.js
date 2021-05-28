@@ -1,10 +1,19 @@
 import React,{useRef} from'react'
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom' 
+import {FormValidator} from './FormValidator'
+import {loginConfig} from '../utils/constants'
 
 
 function Login(props){
 const email=useRef();
 const password=useRef();
+
+
+React.useEffect(() => {    
+    const loginForm=document.getElementById('loginForm');
+const loginFormValidation= new FormValidator(loginConfig,loginForm);
+    loginFormValidation.enableValidation();
+  }, []);
 
 
     function handleSubmit(e){
