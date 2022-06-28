@@ -64,8 +64,8 @@ export class Auth {
 }
 
 const auth = new Auth({
- baseUrl: 'http://localhost:3001',
-  /* baseUrl: "https://api.xenoxil.mesto.nomoredomains.icu",*/
+ //baseUrl: 'http://localhost:3001',
+  baseUrl: "https://api.xenoxil.mesto.nomoredomains.icu",
   headers: {
     "Content-Type": "application/json",
   },
