@@ -1,0 +1,24 @@
+.profile__editavatar {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    z-index: 2;
+    background-color: black;
+    align-self: flex-start;
+    border: 0;
+    opacity: 0;
+    background-image: url('../../../images/AvatarEditBtn.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+
+.profile__editavatar:hover {
+    opacity: .8;
+    transition: opacity 1s linear;
+}
+
+.profile__editavatar:focus {
+    outline: none;
+}

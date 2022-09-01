@@ -1,0 +1,19 @@
+.login__submitbtn{
+    margin:216px 0 0;
+    padding:14px 0;
+    background: #FFFFFF;
+    border:0px;
+border-radius: 2px;
+font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 22px;
+/* identical to box height */
+
+text-align: center;
+
+color: #000000;
+
+
+}
