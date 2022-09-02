@@ -22,7 +22,7 @@ const limiter = rateLimit({
 });
 app.options('*', (req, res) => {
   // res.set('Access-Control-Allow-Origin', 'http://localhost:3006');
-  res.set('Access-Control-Allow-Origin', 'https://xenoxil.mesto.nomoredomains.icu');
+  res.set('Access-Control-Allow-Origin', 'https://xenoxil.mesto.nomoreparties.sbs');
   res.set('Access-Control-Allow-Headers', 'Content-Type');
   res.set('Access-Control-Allow-Methods', ['PUT', 'GET', 'POST', 'DELETE', 'PATCH']);
   res.set('Access-Control-Allow-Credentials', 'true');
@@ -32,7 +32,7 @@ app.options('*', (req, res) => {
 app.use(
   cors({
     // origin: 'http://localhost:3006',
-    origin: 'https://xenoxil.mesto.nomoredomains.icu',
+    origin: 'https://xenoxil.mesto.nomoreparties.sbs',
     credentials: true,
   }),
 );
